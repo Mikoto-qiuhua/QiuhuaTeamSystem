@@ -1,0 +1,15 @@
+name: QiuhuaTeamSystem
+main: org.qiuhua.qiuhuateamsystem.Main
+version: 1.0.0
+api-version: 1.13
+commands:
+  QiuhuaTeamSystem:
+    description: "主指令"
+    usage: /<command>
+    aliases: [ qht ]
+depend:
+  - UnrealCore
+  - PlaceholderAPI
+  - UnrealGUIPro
+softdepend:
+  - DungeonPlus

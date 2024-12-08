@@ -1,0 +1,282 @@
+
+#调试信息
+Debug: true
+
+#队伍信息hud
+TeamInfoHud:
+  #是否启用
+  enable: false
+
+#队伍大厅的设置
+TeamLobby:
+  #一行最多显示多少个队伍
+  teamListRow: 2
+  #水平间隔 是按起始位置增加的 也就是这里得加上你队伍列表那个组件的宽度
+  teamListXSpacing: 195
+  #垂直间隔 是按起始位置增加的 也就是这里得加上你队伍列表那个组件的高度
+  teamListYSpacing: 38
+  #生成最后一个队伍后 他距离下方的边距
+  #这里是修改容器的大小 自动适应实际的高度
+  margins: 38
+
+TeamInfo:
+  #队伍最大人数
+  teamSize: 6
+  #队伍的默认名字 这里支持papi但是只解析队长的
+  #界面内的修改队伍名字不支持任何变量
+  teamDefaultName: "%player_name%的队伍"
+  #如果队伍需要审批 那就显示的文字  无需审批的不显示
+  approveText: "审批"
+  #审批的时间 单位是tick
+  approveTime: 600
+  #在准备信息模板内 如果他是队长 则显示这个 而不是准备状态
+  #队伍主人
+  teamOwnerName: "[队长]"
+  #准备信息模版内显示的 只有非队长显示这个
+  startState: "已准备"
+  defaultState: "未准备"
+  #一行最多显示多少个成员信息
+  playerListRow: 2
+  #水平间隔 是按起始位置增加的 也就是这里得加上你玩家信息那个组件的宽度
+  playerListXSpacing: 84
+  #垂直间隔 是按起始位置增加的 也就是这里得加上你玩家信息那个组件的高度
+  playerListYSpacing: 92
+  #生成最后一个玩家信息后 他距离下方的边距
+  #这里是修改容器的大小 自动适应实际的高度
+  playerMargins: 92
+  #一行最多显示多少个申请信息
+  approveListRow: 1
+  #水平间隔 是按起始位置增加的 也就是这里得加上你申请信息那个组件的宽度
+  approveListXSpacing: 0
+  #垂直间隔 是按起始位置增加的 也就是这里得加上你申请信息那个组件的高度
+  approveListYSpacing: 13
+  #生成最后一个玩家信息后 他距离下方的边距
+  #这里是修改容器的大小 自动适应实际的高度
+  approveMargins: 13
+
+
+#副本信息的设置
+DungeonsInfoSettings:
+  #一行最多显示多少个物品信息
+  itemListRow: 5
+  #水平间隔 是按起始位置增加的
+  itemListXSpacing: 27
+  #垂直间隔 是按起始位置增加的
+  itemListYSpacing: 27
+  #生成最后一个物品信息后 他距离下方的边距
+  #这里是修改容器的大小 自动适应实际的高度
+  itemMargins: 27
+
+  #这里开始是选择副本的设置
+  #一行最多显示多少个副本信息
+  dungeonsInfoListRow: 1
+  #水平间隔 是按起始位置增加的
+  dungeonsInfoListXSpacing: 0
+  #垂直间隔 是按起始位置增加的
+  dungeonsInfoListYSpacing: 15
+  #生成最后一个副本信息后 他距离下方的边距
+  #这里是修改容器的大小 自动适应实际的高度
+  dungeonsInfoMargins: 15
+
+#邀请的设置
+InviteSettings:
+  #队长邀请其他玩家的持续时间 单位是tick
+  inviteTime: 120
+  #被邀请后点了拒绝后 再次邀请这个玩家的间隔 单位是tick 只有点拒绝才会触发这个 按esc关闭不会有
+  inviteCd: 600
+  #邀请列表的类型 random随机的  range范围 队长附近  all 全部
+  inviteList:
+    type: random
+    #random 这里代表随机出现多少个    range代表范围的距离   all的话该项无效
+    value: 10
+  #一行最多显示多少个邀请信息
+  inviteListRow: 1
+  #水平间隔 是按起始位置增加的
+  inviteListXSpacing: 0
+  #垂直间隔 是按起始位置增加的
+  inviteListYSpacing: 13
+  #生成最后一个玩家信息后 他距离下方的边距
+  #这里是修改容器的大小 自动适应实际的高度
+  inviteMargins: 13
+  #邀请触发时的动作  支持guipro的部分动作列表 但没kt功能 执行对象为被邀请者
+  trigger:
+    #邀请开始
+    start:
+      - "[transitionValue]: 邀请列表背景动作,0,154,3000"
+    #邀请结束
+    end:
+
+  #被邀请的玩家显示的hud信息
+  tip:
+    组队邀请背景框0:
+      Type: 'Image'
+      Position: 2
+      X: 0
+      Y: 50
+      Width: 158
+      Height: 63
+      Image: 'team/邀请界面-背景.png'
+      Color: ""
+      Transparent: 255
+    组队邀请背景框1:
+      Type: 'Image'
+      Position: 2
+      X: 0
+      Y: 40
+      Width: 158
+      Height: 18
+      Image: 'team/邀请界面-进度条.png'
+      Color: ""
+      Transparent: 255
+    组队邀请背景框2:
+      Type: 'Image'
+      Position: 2
+      X: 0
+      Y: 41
+      Width: "{transition_邀请列表背景动作}"
+      Height: 13
+      Image: 'team/邀请界面进度条2.png'
+      Color: ""
+      Transparent: 255
+    # 除名字外都可以修改 支持占位符解析 %%用<>代替  解析对象为队伍和队长
+    # 以下为支持的队伍信息占位符 这是内置的
+    # <副本名字>  <队伍名字>  <当前人数> <最大人数> <队伍ID> <审批>
+    组队邀请自定义文本:
+      Type: 'Text'
+      X: "{display_组队邀请背景框1_x}+5"
+      Y: "{display_组队邀请背景框1_y}+4"
+      Text:
+        - '按Y同意              按U拒绝'
+        - ''
+        - ' [<副本名字>]<队伍名字>'
+        - ' <player_name>邀请你加入'
+      TextSize: '1'
+      Space: 10
+      TextColor: 'FFFFFF'
+  #同意加入的按键 按键遵循虚幻的命名规则
+  confirmJoinKey: "Y"
+  #不同意的按键
+  rejectJoinKey: "U"
+
+#队伍聊天的设置
+MessageSettings:
+  #消息最多显示多少个
+  MessageMax: 10
+  #队长的聊天格式 支持papi解析
+  ownerMessage: "[队长]%player_name% -> <message>"
+  #默认的聊天格式
+  defaultMessage: "[队员]%player_name% -> <message>"
+  #系统的信息格式
+  systemMessage: "<message>"
+
+#副本列表
+DungeonsInfo:
+  #在组队系统内显示的名字是这个中文名称
+  副本1:
+    #副本名字 通常都是英文的
+    name: GeneralDungeon
+    #在队伍信息内选择副本后显示的玩意 支持papi解析  用<>代替%%
+    info:
+      - "难度: 普通"
+      - "你的等级<player_level>"
+      - "推荐等级10"
+    #这里的条件是队伍信息内 选副本的时候的条件 只判断队长的
+    #条件满足才会在选副本的列表内显示
+    condition:
+    #这里是启动条件 会检查全队玩家
+    starCondition:
+    #条件不足时的信息提示 支持papi 解析对象为不满足条件的玩家
+    megCondition: "%player_name%等级不足10 当前等级%player_level%"
+    #展示的物品列表  这里不会解析任何数据 包括你使用物品库时也不会传递player给物品库进行解析
+    itemList:
+      #第一个物品
+      item1:
+        #物品材质 如果你填了 NeigeItems 那name就是ni物品库的物品名字
+        type: "STONE"
+        #物品名称
+        name: "测试物品1"
+        #lore描述
+        lore:
+          - "测试物品1"
+        #模型数据 -1不启用
+        model: -1
+      #第2个物品
+      item2:
+        #物品材质 如果你填了 NeigeItems 那name就是ni物品库的物品名字
+        type: "STONE"
+        #物品名称
+        name: "测试物品2"
+        #lore描述
+        lore:
+          - "测试物品2"
+        #模型数据 -1不启用
+        model: -1
+
+  #在组队系统内显示的名字是这个中文名称
+  副本2:
+    #副本名字 通常都是英文的
+    name: fb2
+    #在队伍信息内选择副本后显示的玩意 支持papi解析
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本2"
+    #这里的条件是队伍信息内 选副本的时候的条件 只判断队长的
+    #条件满足才会在选副本的列表内显示
+    condition: "'%player_level%' == '5'"
+  副本3:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本3"
+    condition:
+  副本4:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本4"
+    condition:
+  副本5:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本5"
+    condition:
+  副本6:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本6"
+    condition:
+  副本7:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本7"
+    condition:
+  副本8:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本8"
+    condition:
+  副本9:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本9"
+    condition:
+  副本10:
+    name: fb2
+    info:
+      - "难度: 困难"
+      - "xxxx描述"
+      - "副本10"
+    condition:

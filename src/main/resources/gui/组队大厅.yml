@@ -1,0 +1,216 @@
+Gui:
+  Type: Inventory
+  Position: '5'
+  X: '0'
+  Y: '0'
+  Width: '{display_window_w}'
+  Height: '{display_window_h}'
+  Image: ''
+  Color: ffffff
+  Transparent: '0'
+  Mask: 'true'
+
+ContentList:
+  主要背景:
+    Type: Image
+    Position: 5
+    X: 0
+    Y: 0
+    Width: 441
+    Height: 265
+    Image: 'team/队伍大厅背景.png'
+    Color: 'ffffff'
+    Transparent: 255
+  #仅名字不可修改 这里是刷新功能
+  刷新按钮:
+    Type: Button
+    Position: 5
+    X: -50
+    Y: 110
+    Image: 'team/刷新队伍按钮.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 59
+    Height: 18
+    Text: ''
+    TextColor: '00CACA'
+    TextSize: 1
+  #因为上面的贴图问题 所以不使用按钮自带的文字 用一个新的文字组件
+  刷新按钮文字:
+    Type: 'Text'
+    X: "{display_刷新按钮_xs}+18"
+    Y: "{display_刷新按钮_ys}+3"
+    Text:
+      -  '刷新列表'
+    TextSize: '1'
+    Space: 18
+    TextColor: 'ffffff'
+  #仅名字不可修改 这里是创建队伍功能 如果已经有队伍点了就会跳转到队伍信息界面
+  创建队伍:
+    Type: Button
+    Position: 5
+    X: 50
+    Y: 110
+    Image: 'team/创建队伍按钮.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 59
+    Height: 18
+    Text: ''
+    TextColor: '00CACA'
+    TextSize: 1
+  #因为上面的贴图问题 所以不使用按钮自带的文字 用一个新的文字组件
+  创建队伍文字:
+    Type: 'Text'
+    X: "{display_创建队伍_xs}+17"
+    Y: "{display_创建队伍_ys}+3"
+    Text:
+      -  '我的队伍'
+    TextSize: '1'
+    Space: 18
+    TextColor: 'ffffff'
+
+  #仅名字不可修改 这里点了会搜索
+  搜索按钮:
+    Type: Button
+    Position: 5
+    X: 99
+    Y: -82
+    Image: 'team/短按钮.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 33
+    Height: 18
+    Text: ''
+    TextColor: '00CACA'
+    TextSize: 1
+  #因为上面的贴图问题 所以不使用按钮自带的文字 用一个新的文字组件
+  搜索按钮文字:
+    Type: 'Text'
+    X: "{display_搜索按钮_xs}+8"
+    Y: "{display_搜索按钮_ys}+3"
+    Text:
+      -  '搜索'
+    TextSize: '1'
+    Space: 18
+    TextColor: 'ffffff'
+  #仅名字不可修改 这里是搜索框
+  搜索输入框:
+    Type: Input
+    X: "{display_搜索按钮_x}+35"
+    Y: "{display_搜索按钮_y}"
+    Width: 82
+    Height: 18
+    Image: 'team/搜索框.png'
+    Color: ''
+    Transparent: 255
+    Title: ''
+    TitleColor: ''
+    TitleSize: 1
+    Prompt: '搜索队伍'
+    PromptColor: 'FFFFFF'
+    PromptSize: 1
+    Text: ''
+    TextColor: 'FFFFFF'
+    TextSize: 1
+    TextMaxLength: 30
+    InputStart: 20
+    InputEnd: 0
+    CanInput: true
+  #仅名字不可修改 这里是用来放队伍列表的
+  队伍列表容器:
+    Type: Container
+    Position: 5
+    X: 0
+    Y: 10
+    Width: 390
+    Height: 160
+    ActualWidth: 390
+    ActualHeight: 1000
+    Image: ''
+    Color: '#808080'
+    Transparent: 0
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#ffffff'
+    ScrollSidebarTransparent: 100
+    ScrollXDisplay: 2
+    ScrollYDisplay: 3
+    ContentList:
+      #名字不能修改
+      队伍信息容器模板:
+        Type: Container
+        Position: 1
+        X: 0
+        Y: 5
+        Width: 190
+        Height: 33
+        ActualWidth: 190
+        ActualHeight: 33
+        Image: 'team/队伍信息背景.png'
+        Color: ''
+        Transparent: 255
+        ScrollBackgroundColor: '0F0F0A'
+        ScrollBackgroundTransparent: 0
+        ScrollColor: '1e90ff'
+        ScrollTransparent: 0
+        ScrollSidebarColor: '#000000'
+        ScrollSidebarTransparent: 0
+        ScrollXDisplay: 2
+        ScrollYDisplay: 2
+        ContentList:
+          #名字不能修改 这里支持papi 解析对象为队长  用<>代替%%  这里除了player_name以外都是内置的占位符解析 只有这里可以使用
+          自定义信息模板:
+            Type: 'Text'
+            Position: 1
+            X: 2
+            Y: 5
+            Text:
+              -  '[<副本名字>]<队伍名字>'
+              -  '<player_name> <当前人数>/<最大人数> ID<队伍ID> <审批>'
+            TextSize: '1'
+            Space: 15
+            TextColor: 'ffffff'
+          加入按钮模板:
+            Type: Button
+            Position: 3
+            X: -3
+            Y: 3
+            Image: 'team/进入队伍按钮.png'
+            # HoverImage: 'gui/button/button2_on.png'
+            # ClickImage: 'gui/button/button2_on.png'
+            Color: ''
+            Transparent: 255
+            HoverTransparent: 200
+            Width: 21
+            Height: 11
+            Text: '加入'
+            TextColor: 'ffffff'
+            TextSize: 1
+          查看按钮模板:
+            Type: Button
+            Position: 3
+            X: -3
+            Y: 18
+            Image: 'team/查看队伍按钮.png'
+            # HoverImage: 'gui/button/button2_on.png'
+            # ClickImage: 'gui/button/button2_on.png'
+            Color: ''
+            Transparent: 255
+            HoverTransparent: 200
+            Width: 21
+            Height: 11
+            Text: '查看'
+            TextColor: 'ffffff'
+            TextSize: 1

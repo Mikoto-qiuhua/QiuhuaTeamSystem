@@ -1,0 +1,767 @@
+Gui:
+  Type: Inventory
+  Position: '5'
+  X: '0'
+  Y: '0'
+  Width: '{display_window_w}'
+  Height: '{display_window_h}'
+  Image: ''
+  Color: ffffff
+  Transparent: '0'
+  Mask: 'true'
+
+ContentList:
+  主要背景:
+    Type: Image
+    Position: 5
+    X: 0
+    Y: 0
+    Width: 438
+    Height: 297
+    Image: 'team/背景.png'
+    Color: 'ffffff'
+    Transparent: 255
+
+  基础模块背景:
+    Type: Image
+    Position: 5
+    X: 30
+    Y: 78
+    Width: 128
+    Height: 82
+    Image: 'team/队伍界面-队伍.png'
+    Color: 'ffffff'
+    Transparent: 255
+
+  #仅名字不可修改 队长显示的 全部队友准备后 点击了就会启动对应副本
+  进入副本按钮:
+    Type: Button
+    X: "{display_基础模块背景_x}+3"
+    Y: "{display_基础模块背景_ye}-20"
+    Image: 'team/队伍界面-玩家界面ui.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 35
+    Height: 16
+    Text: '进入副本'
+    TextColor: 'ffffff'
+    TextSize: 1
+
+  #仅名字不可修改 队员显示的 点了后会准备 
+  准备按钮:
+    Type: Button
+    X: "{display_基础模块背景_x}+3"
+    Y: "{display_基础模块背景_ye}-20"
+    Image: 'team/队伍界面-玩家界面ui.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 35
+    Height: 16
+    Text: '准备'
+    TextColor: 'ffffff'
+    TextSize: 1
+
+
+
+  #仅名字不可修改 这里控制是否需要审批才能加入队伍 默认是需要
+  审批选项:
+    Type: Check
+    X: "{display_基础模块背景_x}+3"
+    Y: "{display_基础模块背景_y}+3"
+    Check: true
+    OffImage: 'team/check_off_1.png'
+    OnImage: 'team/check_on_1.png'
+    Width: 10
+    Height: 10
+    Text: '审批'
+    TextColor: 'ffffff'
+    TextSize: 1
+    TextPlace: 1
+    TextDistance: 2
+  #仅名字不可修改 这里控制队伍隐藏的 默认关闭 开启后 队伍将不会在显示队伍列表 并且不能申请  只能被邀请进入
+  隐藏选项:
+    Type: Check
+    X: "{display_基础模块背景_x}+40"
+    Y: "{display_基础模块背景_y}+3"
+    Check: false
+    OffImage: 'team/check_off_1.png'
+    OnImage: 'team/check_on_1.png'
+    Width: 10
+    Height: 10
+    Text: '私有'
+    TextColor: 'ffffff'
+    TextSize: 1
+    TextPlace: 1
+    TextDistance: 2
+  #仅名字不可修改 点击后退出队伍 队长点了解散队伍
+  退出队伍按钮:
+    Type: Button
+    X: "{display_基础模块背景_xe}-42"
+    Y: "{display_基础模块背景_ye}-20"
+    Image: 'team/队伍界面-玩家界面ui.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 35
+    Height: 16
+    Text: '退出队伍'
+    TextColor: 'ffffff'
+    TextSize: 1
+  #仅名字不可修改 这里点了会修改队伍名字 按输入框的内容修改
+  修改队伍名称按钮:
+    Type: Button
+    X: "{display_基础模块背景_xe}-42"
+    Y: "{display_基础模块背景_ye}-60"
+    Image: 'team/队伍界面-玩家界面ui.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 35
+    Height: 16
+    Text: '修改'
+    TextColor: 'ffffff'
+    TextSize: 1
+  #仅名字不可修改 这里是搜索框
+  队伍名称输入框:
+    Type: Input
+    X: "{display_基础模块背景_xe}-87"
+    Y: "{display_基础模块背景_ye}-40"
+    Width: 78
+    Height: 16
+    Image: 'team/队伍界面-队伍ui2.png'
+    Color: ''
+    Transparent: 255
+    Title: ''
+    TitleColor: ''
+    TitleSize: 1
+    Prompt: '输入队伍名称'
+    PromptColor: 'ffffff'
+    PromptSize: 1
+    Text: ''
+    TextColor: 'ffffff'
+    TextSize: 1
+    TextMaxLength: 10
+    InputStart: 3
+    InputEnd: 0
+    CanInput: true
+  队伍名称文字:
+    Type: 'Text'
+    X: "{display_队伍名称输入框_x}-36"
+    Y: "{display_队伍名称输入框_y}+4"
+    Text:
+      - '队伍名称'
+    TextSize: '1'
+    Space: 18
+    TextColor: 'ffffff'
+
+
+  申请列表背景:
+    Type: Image
+    Position: 5
+    X: 155
+    Y: 60
+    Width: 106
+    Height: 86
+    Image: 'team/队伍界面-申请.png'
+    Color: 'ffffff'
+    Transparent: 255
+
+
+  #仅名字不可修改 这里是用来放申请列表的
+  申请列表容器:
+    Type: Container
+    Position: 5
+    X: 155
+    Y: 67
+    Width: 106
+    Height: 70
+    ActualWidth: 106
+    ActualHeight: 70
+    Image: ''
+    Color: 'ffffff'
+    Transparent: 0
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#ffffff'
+    ScrollSidebarTransparent: 100
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ContentList:
+      #名字不能修改
+      申请玩家容器:
+        Type: Container
+        Position: 1
+        X: 0
+        Y: 1
+        Width: 106
+        Height: 10
+        ActualWidth: 106
+        ActualHeight: 10
+        Image: ''
+        Color: '#FF0000'
+        Transparent: 0
+        ScrollBackgroundColor: '0F0F0A'
+        ScrollBackgroundTransparent: 0
+        ScrollColor: '1e90ff'
+        ScrollTransparent: 0
+        ScrollSidebarColor: '#000000'
+        ScrollSidebarTransparent: 0
+        ScrollXDisplay: 2
+        ScrollYDisplay: 2
+        ContentList:
+          #名字不能修改 这里支持papi 解析对象为对应的玩家 用<>代替%%
+          自定义信息模板:
+            Type: 'Text'
+            Position: 1
+            X: 2
+            Y: 1
+            Text:
+              - '<player_name>'
+            TextSize: '1'
+            Space: 18
+            TextColor: 'ffffff'
+          同意加入按钮模板:
+            Type: Button
+            Position: 3
+            X: -3
+            Y: -1
+            Image: 'team/查看队伍按钮.png'
+            # HoverImage: 'gui/button/button2_on.png'
+            # ClickImage: 'gui/button/button2_on.png'
+            Color: ''
+            Transparent: 255
+            HoverTransparent: 200
+            Width: 21
+            Height: 11
+            Text: '同意'
+            TextColor: 'ffffff'
+            TextSize: 1
+
+  申请列表文字:
+    Type: 'Text'
+    X: "{display_申请列表背景_x}+35"
+    Y: "{display_申请列表背景_y}+3"
+    Text:
+      - '申请列表'
+    TextSize: '1'
+    Space: 18
+    TextColor: 'ffffff'
+
+  #仅名字不可修改 这里是用来放队友信息的
+  队友列表容器:
+    Type: Container
+    Position: 5
+    X: -123
+    Y: 0
+    Width: 163
+    Height: 190
+    ActualWidth: 163
+    ActualHeight: 190
+    Image: ''
+    Color: '#808080'
+    Transparent: 0
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#ffffff'
+    ScrollSidebarTransparent: 100
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ContentList:
+      #名字不能修改
+      队友信息容器模板:
+        Type: Container
+        Position: 1
+        X: 1
+        Y: 1
+        Width: 79
+        Height: 91
+        ActualWidth: 79
+        ActualHeight: 91
+        Image: 'team/队伍界面-玩家界面.png'
+        Color: ''
+        Transparent: 255
+        ScrollBackgroundColor: '0F0F0A'
+        ScrollBackgroundTransparent: 0
+        ScrollColor: '1e90ff'
+        ScrollTransparent: 0
+        ScrollSidebarColor: '#000000'
+        ScrollSidebarTransparent: 0
+        ScrollXDisplay: 2
+        ScrollYDisplay: 2
+        ContentList:
+          #名字不能修改 这里支持papi 解析对象为对应的玩家  用<>代替%%
+          自定义信息模板:
+            Type: 'Text'
+            Position: 2
+            X: 0
+            Y: 5
+            Text:
+              - '<player_name>'
+            TextSize: '1'
+            Space: 18
+            TextColor: 'ffffff'
+          #名字不能修改 显示玩家的准备状态  队长的话会显示
+          准备信息模板:
+            Type: 'Text'
+            Position: 2
+            X: 0
+            Y: 60
+            Text:
+              - '<准备状态>'
+            TextSize: '1'
+            Space: 18
+            TextColor: 'ffffff'
+          #名字不能修改 这里会自动设置成对应玩家
+          玩家实体渲染模版:
+            Type: Entity
+            Position: 5
+            EntityType: 'Player'
+            EntityName: ''
+            EntitySize: 20
+            X: -3
+            Y: -10
+          #名字不能修改 设置队长
+          转让队长按钮模板:
+            Type: Button
+            Position: 8
+            X: -19
+            Y: -3
+            Width: 35
+            Height: 16
+            Image: 'team/队伍界面-玩家界面ui.png'
+            # HoverImage: 'gui/button/button2_on.png'
+            # ClickImage: 'gui/button/button2_on.png'
+            Color: ''
+            Transparent: 255
+            HoverTransparent: 200
+            Text: '转让'
+            TextColor: 'ffffff'
+            TextSize: 1
+          #名字不能修改 踢出
+          踢出队友按钮模板:
+            Type: Button
+            Position: 8
+            X: 19
+            Y: -3
+            Width: 35
+            Height: 16
+            Image: 'team/队伍界面-玩家界面ui.png'
+            # HoverImage: 'gui/button/button2_on.png'
+            # ClickImage: 'gui/button/button2_on.png'
+            Color: ''
+            Transparent: 255
+            HoverTransparent: 200
+            Text: '踢出'
+            TextColor: 'ffffff'
+            TextSize: 1
+
+
+
+  邀请列表背景:
+    Type: Image
+    Position: 5
+    X: 155
+    Y: -35
+    Width: 106
+    Height: 86
+    Image: 'team/队伍界面-邀请.png'
+    Color: 'ffffff'
+    Transparent: 255
+
+
+  #仅名字不可修改 这里是输入需要邀请的玩家名字
+  邀请玩家名称输入框:
+    Type: Input
+    X: "{display_邀请列表背景_x}"
+    Y: "{display_邀请列表背景_y}"
+    Width: 58
+    Height: 14
+    Image: ''
+    Color: '#808080'
+    Transparent: 0
+    Title: ''
+    TitleColor: ''
+    TitleSize: 1
+    Prompt: '输入玩家名字'
+    PromptColor: 'ffffff'
+    PromptSize: 1
+    Text: ''
+    TextColor: 'ffffff'
+    TextSize: 1
+    TextMaxLength: 16
+    InputStart: 3
+    InputEnd: 0
+    CanInput: true
+  #仅名字不可修改 这里点了会邀请对应玩家
+  邀请玩家按钮:
+    Type: Button
+    X: "{display_邀请玩家名称输入框_xe}+5"
+    Y: "{display_邀请玩家名称输入框_y}+2"
+    # Image: 'gui/button/button2_off.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: '1e90ff'
+    Transparent: 0
+    HoverTransparent: 0
+    ClickTransparent: 0
+    Width: 20
+    Height: 10
+    Text: '邀请'
+    TextColor: 'ffffff'
+    TextSize: 1
+
+    
+  #仅名字不可修改 点击后会刷新邀请列表
+  刷新玩家按钮:
+    Type: Button
+    X: "{display_邀请玩家按钮_xe}"
+    Y: "{display_邀请玩家按钮_y}"
+    # Image: 'gui/button/button2_off.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: '#708090'
+    Transparent: 0
+    HoverTransparent: 0
+    ClickTransparent: 0
+    Width: 20
+    Height: 10
+    Text: '刷新'
+    TextColor: 'ffffff'
+    TextSize: 1
+  #仅名字不可修改 这里是用来放邀请列表的
+  邀请列表容器:
+    Type: Container
+    Position: 5
+    X: 155
+    Y: -27
+    Width: 106
+    Height: 70
+    ActualWidth: 106
+    ActualHeight: 70
+    Image: ''
+    Color: 'ffffff'
+    Transparent: 0
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#ffffff'
+    ScrollSidebarTransparent: 100
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ContentList:
+      #仅名字不能修改 这里是单个邀请的配置
+      单个邀请信息容器模板:
+        Type: Container
+        Position: 1
+        X: 0
+        Y: 1
+        Width: 106
+        Height: 10
+        ActualWidth: 106
+        ActualHeight: 10
+        Image: ''
+        Color: '#FF0000'
+        Transparent: 0
+        ScrollBackgroundColor: '0F0F0A'
+        ScrollBackgroundTransparent: 0
+        ScrollColor: '1e90ff'
+        ScrollTransparent: 0
+        ScrollSidebarColor: '#000000'
+        ScrollSidebarTransparent: 0
+        ScrollXDisplay: 2
+        ScrollYDisplay: 2
+        ContentList:
+          #仅名字不能修改 这里支持papi 解析对象为对应的玩家  用<>代替%%
+          自定义信息模板:
+            Type: 'Text'
+            Position: 1
+            X: 2
+            Y: 1
+            Text:
+              - '<player_name>'
+            TextSize: '1'
+            Space: 18
+            TextColor: 'ffffff'
+          邀请玩家按钮模板:
+            Type: Button
+            Position: 3
+            X: -3
+            Y: -1
+            Image: 'team/查看队伍按钮.png'
+            # HoverImage: 'gui/button/button2_on.png'
+            # ClickImage: 'gui/button/button2_on.png'
+            Color: ''
+            Transparent: 255
+            HoverTransparent: 200
+            Width: 21
+            Height: 11
+            Text: '邀请'
+            TextColor: 'ffffff'
+            TextSize: 1
+
+
+
+  副本信息背景:
+    Type: Image
+    Position: 5
+    X: 30
+    Y: -40
+    Width: 137
+    Height: 149
+    Image: 'team/队伍界面-副本.png'
+    Color: 'ffffff'
+    Transparent: 255
+
+  # #仅名字不能修改 这里是副本信息的容器
+  副本信息容器:
+    Type: Container
+    Position: 5
+    X: 30
+    Y: -60
+    Width: 110
+    Height: 70
+    ActualWidth: 110
+    ActualHeight: 70
+    Image: ''
+    Color: '#808080'
+    Transparent: 0
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#000000'
+    ScrollSidebarTransparent: 0
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ContentList:
+      #仅名字不能修改 这里是副本名称信息
+      副本名称信息:
+        Type: 'Text'
+        Position: 2
+        X: 0
+        Y: 2
+        Text: 
+          - "无"
+        TextSize: '2'
+        Space: 18
+        TextColor: 'ffffff'
+      #仅名字不能修改 这里是副本自定义信息
+      副本自定义信息:
+        Type: 'Text'
+        Position: 1
+        X: 5
+        Y: 25
+        Text:
+        TextSize: '1'
+        Space: 12
+        TextColor: 'ffffff'
+
+
+
+  #仅名字不可修改 这里是用来放副本掉落物的
+  副本物品列表容器:
+    Type: Container
+    Position: 5
+    X: 30
+    Y: 5
+    Width: 110
+    Height: 40
+    ActualWidth: 110
+    ActualHeight: 40
+    Image: ''
+    Color: '#808080'
+    Transparent: 0
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#000000'
+    ScrollSidebarTransparent: 255
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ContentList:
+      #仅名字不能修改 这里是单个物品的配置
+      单个物品信息容器模板:
+        Type: Container
+        Position: 1
+        X: 5
+        Y: 0
+        Width: 20
+        Height: 20
+        ActualWidth: 20
+        ActualHeight: 20
+        Image: 'team/队伍界面-副本掉落框.png'
+        Color: ''
+        Transparent: 255
+        ScrollBackgroundColor: '0F0F0A'
+        ScrollBackgroundTransparent: 0
+        ScrollColor: '1e90ff'
+        ScrollTransparent: 0
+        ScrollSidebarColor: '#000000'
+        ScrollSidebarTransparent: 0
+        ScrollXDisplay: 2
+        ScrollYDisplay: 2
+        ContentList:
+          #显示的物品  不需要设置item的内容 自动的  可以使用tip功能
+          物品模板:
+            Type: 'Item'
+            Position: 5
+            X: 0
+            Y: 0
+            Item: '{Count:1b,id:"minecraft:stone"}'
+            ItemSize: 1
+            ItemAmount: 1
+            Tip: '常规物品'
+
+
+  #仅名字不能修改 这里点击后会弹出副本选择容器的组件 再点一次关闭
+  副本选择按钮:
+    Type: Button
+    X: "{display_基础模块背景_xe}-42"
+    Y: "{display_基础模块背景_ye}-78"
+    Image: 'team/队伍界面-玩家界面ui.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Width: 35
+    Height: 16
+    Text: '副本'
+    TextColor: 'ffffff'
+    TextSize: 1
+
+
+
+  #仅名字不能修改 这里面包含了可以选择的副本列表
+  #这个默认不显示的 需要点了上面的按钮才会生成
+  副本选择容器:
+    Type: Container
+    Position: 5
+    X: 165
+    Y: 3
+    Width: 60
+    Height: 100
+    ActualWidth: 60
+    ActualHeight: 100
+    Image: ''
+    Color: '#00CACA'
+    Transparent: 255
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#000000'
+    ScrollSidebarTransparent: 255
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ContentList:
+      #单个选择副本的按钮模板配置
+      副本按钮模板:
+        Type: Button
+        Position: 2
+        X: 0
+        Y: 0
+        # Image: 'gui/button/button2_off.png'
+        # HoverImage: 'gui/button/button2_on.png'
+        # ClickImage: 'gui/button/button2_on.png'
+        Color: '1e90ff'
+        Transparent: 255
+        Width: 60
+        Height: 14
+        Text: '副本1'
+        TextColor: '00CACA'
+        TextSize: 1
+
+
+  #仅名字不可修改 放队内聊天的
+  队内聊天栏容器:
+    Type: Container
+    Position: 5
+    X: -300
+    Y: 40
+    Width: 150
+    Height: 120
+    ActualWidth: 150
+    ActualHeight: 1000
+    Image: ''
+    Color: '#708090'
+    Transparent: 100
+    ScrollBackgroundColor: '0F0F0A'
+    ScrollBackgroundTransparent: 0
+    ScrollColor: '1e90ff'
+    ScrollTransparent: 0
+    ScrollSidebarColor: '#000000'
+    ScrollSidebarTransparent: 255
+    ScrollXDisplay: 2
+    ScrollYDisplay: 2
+    ScrollY: 0
+    ContentList:
+      #仅名字不可修改 聊天信息
+      队内聊天信息列表:
+        Type: 'Text'
+        Position: 1
+        X: 3
+        Y: 3
+        Width: 148
+        Text:
+        TextSize: '1'
+        Space: 12
+        TextColor: 'ffffff'
+  #仅名字不可修改 这里是聊天信息输入
+  队内聊天输入框:
+    Type: Input
+    X: "{display_队内聊天栏容器_x}"
+    Y: "{display_队内聊天栏容器_ye}+2"
+    Width: 120
+    Height: 14
+    Image: 'team/队伍界面-队伍ui2.png'
+    Color: ''
+    Transparent: 255
+    Title: ''
+    TitleColor: ''
+    TitleSize: 1
+    Prompt: '输入消息内容'
+    PromptColor: 'ffffff'
+    PromptSize: 1
+    Text: ''
+    TextColor: 'ffffff'
+    TextSize: 1
+    TextMaxLength: 64
+    InputStart: 3
+    InputEnd: 0
+    CanInput: true
+  #仅名字不可修改 这里是发送聊天信息
+  发送队内聊天按钮:
+    Type: Button
+    X: "{display_队内聊天输入框_xe}+1"
+    Y: "{display_队内聊天输入框_y}-1"
+    Width: 35
+    Height: 16
+    Image: 'team/队伍界面-玩家界面ui.png'
+    # HoverImage: 'gui/button/button2_on.png'
+    # ClickImage: 'gui/button/button2_on.png'
+    Color: ''
+    Transparent: 255
+    HoverTransparent: 200
+    Text: '发送'
+    TextColor: 'ffffff'
+    TextSize: 1
+
+
+
